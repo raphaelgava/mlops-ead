@@ -1,0 +1,42 @@
+#pip install -r requirements.txt
+#pip install --only-binary=:all: -r requirements.txt  ###para instalar sem compilar o pacote!!!
+fastapi==0.110.0
+numpy==1.26.4 #No ambiente conda funciona, no ambiente do python não por conta de incompactibilidade
+#numpy==2.3.2
+mlflow==2.12.1 #Exige que o numpy seja <2..
+scikit-learn==1.4.2
+pandas==2.2.3
+matplotlib==3.9.2
+
+#original (aula 3.2) - com versões incompatíveis com python 3.1.3.4
+#fastapi==0.85.0
+#mlflow==1.29.0
+#scikit-learn>=1.3.0 #- O scikit-learn==1.1.2 é incompatível com Python 3.12, porque depende de uma versão antiga do setuptools que usa esse recurso obsoleto.
+#pandas==1.5.0
+#matplotlib==3.6.1
+
+#linux
+#(.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip freeze | xargs pip uninstall -y
+#windows
+#(.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip freeze | ForEach-Object { pip uninstall -y $_ }
+
+#(base) (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip freeze > packages.txt
+#(base) (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip uninstall -y -r packages.txt
+#(base) (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip list
+#Package Version
+#------- -------
+#pip     25.2
+
+
+#fastapi==0.115.0
+#uvicorn[standard]==0.32.0
+#mlflow==2.22.1
+#tensorflow==2.20.0 #2.18.0 estava dando erro
+#pytest==8.3.3
+#pytest-asyncio==0.24.0
+#pycodestyle==2.12.1
+#black==24.8.0
+#locust==2.32.0
+#pydantic==2.9.2
+#python-multipart==0.0.12
+#requests==2.32.3
