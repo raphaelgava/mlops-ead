@@ -132,7 +132,8 @@ def config_mlflow():
     # mlflow.set_tracking_uri('https://dagshub.com/renansantosmendes/mlops-ead-2025.mlflow')
 
     #Ambiente local
-    mlflow.set_tracking_uri("file:///C:/Users/Raphael/IdeaProjects/MLUnidade3/mlruns")
+    #mlflow.set_tracking_uri("file:///C:/Users/Raphael/IdeaProjects/MLUnidade3/mlruns")
+    mlflow.set_tracking_uri("file:./mlruns") #Para usando caminho relativo evitar o problema ao rodar em qualquer outro ambiente: PermissionError: [Errno 13] Permission denied: '/C:'
     mlflow.set_experiment("experiment_mlops_ead") #Output is truncated. View as a scrollable element or open in a text editor. Adjust cell output settings... 2025/08/28 15:27:45 WARNING mlflow.utils.environment: Encountered an unexpected error while inferring pip requirements (model URI: C:\Users\Raphael\AppData\Local\Temp\tmp777l1328\model, flavor: keras). Fall back to return ['keras==3.11.2']. Set logging level to DEBUG to see the full traceback
 
     import logging
