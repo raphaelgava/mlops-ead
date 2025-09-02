@@ -1,0 +1,31 @@
+name: mlops-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Python e ferramentas básicas
+  - python=3.12
+  - pip
+  - git
+  - curl
+
+  # Pacotes científicos via conda (melhor performance)
+  #- numpy=1.26.4
+  #- pandas=2.2.3
+  #- matplotlib=3.9.2
+  #- scikit-learn=1.7.0
+  #- mlflow=2.9.2 # Solving environment: failed ResolvePackageNotFound: - mlflow==3.3.1
+
+  # Jupyter para desenvolvimento
+  #- jupyter
+  #- jupyterlab
+
+  # Pacotes pip específicos
+  - pip:
+      - -r requirements.txt
+      # Pacotes científicos via pip
+      # - mlflow==3.3.1
+      #- fastapi==0.116.1
+      #- scikit-learn==1.7.1
+      #- pandas==2.3.2
+      #- matplotlib==3.10.5
