@@ -68,5 +68,28 @@ Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
 
+#DAGSHUB
+
+(mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip install dagshub
+Collecting dagshub
+
+(mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip show pytest
+WARNING: Package(s) not found: pytest
+(mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip install pytest
+Collecting pytest
+
+(mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> pip show pytest
+Name: pytest
+Version: 8.4.1
+Summary: pytest: simple powerful testing with Python
+Home-page: https://docs.pytest.org/en/latest/
+Author: Holger Krekel, Bruno Oliveira, Ronny Pfannschmidt, Floris Bruynooghe, Brianna Laugher, Florian Bruhin, Others (See AUTHORS)
+Author-email:
+License: MIT
+Location: c:\users\raphael\.conda\envs\mlops-env\lib\site-packages
+Requires: colorama, exceptiongroup, iniconfig, packaging, pluggy, pygments, tomli
+Required-by:
+(mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3>
+
 
 
