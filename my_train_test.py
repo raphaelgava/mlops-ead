@@ -7,7 +7,8 @@ from train import (read_data,
                    train_model)
 
 
-@pytest.fixture
+@pytest.fixture #é uma funcionalidade poderosa do framework pytest que permite criar funções de preparação de ambiente para testes — ou seja, código que será executado antes dos testes para configurar o cenário necessário
+
 def sample_data():
     """
     A fixture function that returns a sample dataset.
@@ -37,8 +38,8 @@ def test_read_data():
     """
     X, y = read_data()
 
-    assert not X.empty
-    assert not y.empty
+    assert not X.empty #valida se não está vazio (se conseguiu ler do arquivo)
+    assert not y.empty #valida se não está vazio (se conseguiu ler do arquivo)
 
 
 def test_create_model():
@@ -49,11 +50,11 @@ def test_create_model():
     X, _ = read_data()
     model = create_model(X)
 
-    assert len(model.layers) > 2
-    assert model.trainable
+    assert len(model.layers) > 2 #valida se tem um canal de entrada e outro de saída
+    assert model.trainable #valida se o modelo é treinável
     assert isinstance(model, Sequential)
 
-
+#as funções tem que começar com test_ para o pytest identificar!!!
 def test_train_model(sample_data):
     """
     Generate a function comment for the given function body in a markdown code block with
@@ -70,5 +71,5 @@ def test_train_model(sample_data):
     y = sample_data['fetal_health'] - 1
     model = create_model(X)
     train_model(model, X, y, is_train=False)
-    assert model.history.history['loss'][-1] > 0
-    assert model.history.history['val_loss'][-1] > 0
+    assert model.history.history['loss'][-1] > 0 #valida se os valores de p são positivos
+    assert model.history.history['val_loss'][-1] > 0 #
