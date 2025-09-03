@@ -8,7 +8,6 @@ from train import (read_data,
 
 
 @pytest.fixture #é uma funcionalidade poderosa do framework pytest que permite criar funções de preparação de ambiente para testes — ou seja, código que será executado antes dos testes para configurar o cenário necessário
-
 def sample_data():
     """
     A fixture function that returns a sample dataset.

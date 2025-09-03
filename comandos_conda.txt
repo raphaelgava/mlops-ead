@@ -1,3 +1,7 @@
+#PARA DESCOBRIR DE ONDE ESTÁ SENDO USADO O AMBIENTE DO PYTHON
+(mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> python -c "import sys; print(sys.executable)"
+C:\Users\Raphael\.conda\envs\mlops-env\python.exe
+
 
 (base) (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda deactivate
 (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda env create -f my_environment.yml
@@ -12,10 +16,16 @@ base                     C:\ProgramData\anaconda3
 mlops-env                C:\ProgramData\anaconda3\envs\mlops-env
 
 (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3>
-
+#O CORRETO É SAIR TAMBÉM DO AMBIENTE .vev ANTES DE RODAR AS IMPLANTAÇÕES
 (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda remove --name mlops-env  --all
 
+PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda clean --all
+Will remove 47 (169.2 MB) tarball(s).
+Proceed ([y]/n)? Y
+
  (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda env create -f my_environment.yml
+
+# CAMINHO DA INSTALAÇÃO LOCAL => C:\Users\Raphael\.conda\envs\mlops-env
 
  (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda activate mlops-env
  (mlops-env) (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3>
@@ -35,14 +45,14 @@ Python 3.12.11
 #Atualizando versão do pacote para o Jupyter (Com VS Code) funcionar no ambiente do mlops-env
 (mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda install -n mlops-env ipykernel
 
-#instalando pacote do arquivo que está no .ipynb
+#instalando pacote do arquivo que está no .ipynb e no train.py
 (mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda install -c conda-forge tensorflow
 
 
 #Comando para mlflow visual setando onde os modelos estão sendo criados (mlflow.set_tracking_uri("file:///C:/Users/Raphael/IdeaProjects/MLUnidade3/mlruns"))
 mlflow ui --backend-store-uri "file:///C:/Users/Raphael/IdeaProjects/MLUnidade3/mlruns"
 
-#Deu erro pois haviam 2 ambientes rodando!!!
+#Deu erro pois haviam 2 ambientes (mlops-env e .vev) rodando!!!
 (mlops-env) (.venv) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> mlflow ui
 ImportError: DLL load failed while importing _ctypes: The specified module could not be found.
 
@@ -51,7 +61,7 @@ ImportError: DLL load failed while importing _ctypes: The specified module could
 INFO:waitress:Serving on http://127.0.0.1:5000
 
 
-#problema do ctypes
+#problema do ctypes (TENTATVA, O PROBLEMA ERA A VERSÃO 3.12 DO PYTHON)
 (mlops-env) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda deactivate
 (base) PS C:\Users\Raphael\IdeaProjects\MLUnidade3> conda update conda
 Collecting package metadata (current_repodata.json): done

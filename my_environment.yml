@@ -1,10 +1,10 @@
 name: mlops-env
 channels:
+  - defaults #USAR ANTES: Evita conflitos de builds entre canais
   - conda-forge
-  - defaults
 dependencies:
   # Python e ferramentas básicas
-  - python=3.12
+  - python=3.10.18 #3.12 estava causando problemas: ImportError: DLL load failed while importing _ctypes: The specified module could not be found.
   - pip
   - git
   - curl
@@ -22,6 +22,11 @@ dependencies:
 
   # Pacotes pip específicos
   - pip:
+      #forçando atualizacao do pip
+      - pip>=25.2
+      - setuptools>=80.9.0
+      - wheel
+      #instalando pacotes do requirements.txt
       - -r requirements.txt
       # Pacotes científicos via pip
       # - mlflow==3.3.1

@@ -16,6 +16,9 @@ print("Shape dos dados:", X.shape)
 print("Primeiras linhas:")
 print(pd.DataFrame(X, columns=data.feature_names).head())
 
+mlflow.set_tracking_uri("file:./mlruns")   # precisa ter para não dar o erro de não encontrar o experimento: mlflow.exceptions.MlflowException: Could not find experiment with ID 0
+mlflow.set_experiment("experiment_mlops_ead_Main.py") # procura por esse, se não existir, ele cria
+
 # mlflow.start_run()
 #
 # model = LogisticRegression(max_iter=1000)
@@ -39,10 +42,10 @@ print(pd.DataFrame(X, columns=data.feature_names).head())
 # # mlflow.sklearn.log_model(model, name="model") # versão mais atual do mlflow
 #
 # mlflow.end_run()
-#
-# # (.venv) PS C:\Users\Raphael\IdeaProjects\DesafioML> mlflow ui
-# # INFO:     Uvicorn running on http://127.0.0.1:5000 (Press CTRL+C to quit)
-#
+
+# (.venv) PS C:\Users\Raphael\IdeaProjects\DesafioML> mlflow ui
+# INFO:     Uvicorn running on http://127.0.0.1:5000 (Press CTRL+C to quit)
+
 
 print("-------------------------------")
 
